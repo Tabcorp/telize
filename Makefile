@@ -1,4 +1,4 @@
-TARGETS = api-service-telize target
+TARGETS = api-service-telize data target
 
 RESET=\x1b[0m
 GREEN=\x1b[32;01m
@@ -45,7 +45,15 @@ archive: package
 	@tar -cf $(ARCHIVE) api-service-telize/*
 	@mkdir target && mv $(ARCHIVE) target/
 	@echo "$(RELEASE)" > target/RELEASE.txt
+
+download-data:
+	@mkdir -p data
+	@wget -P data/ http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+	@wget -P data/ http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz
+	@wget -P data/ http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNumv6.dat.gz
+
+
 #
 # Phony targets
 
-.PHONY: clean package pkg pkg/cp archive
+.PHONY: clean package pkg pkg/cp archive download-data
