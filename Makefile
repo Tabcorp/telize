@@ -52,8 +52,10 @@ download-data:
 	@wget -P data/ http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz
 	@wget -P data/ http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNumv6.dat.gz
 
+test-go:
+	@touch xunit.xml
 
 #
 # Phony targets
 
-.PHONY: clean package pkg pkg/cp archive download-data
+.PHONY: clean package pkg pkg/cp archive download-data test-go
