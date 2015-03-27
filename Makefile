@@ -37,8 +37,9 @@ pkg:
 
 pkg/cp: pkg
 	@mkdir -p api-service-telize/logs/
-	@cp telize api-service-telize/
-	@cp *.conf api-service-telize/
+	@mkdir -p api-service-telize/nginx/
+	@cp telize api-service-telize/nginx/telize.conf
+	@cp *.conf api-service-telize/nginx/
 
 archive: package
 	@echo -e "$(GREEN)Archiving the repo to $(ARCHIVE)$(RESET)"
