@@ -99,7 +99,7 @@ server {
 		local json = cjson.encode(args)
 
 		if (callback ~= nil and callback ~= "") then
-			ngx.header.content_type = 'application/javascript'
+			ngx.header.content_type = "application/javascript"
 			ngx.say(callback, "(", json, ");")
 		else
 			ngx.say(json)
