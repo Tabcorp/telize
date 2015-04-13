@@ -26,6 +26,8 @@ server {
 	}
 
 	location /v1/telize-service/geoip {
+		default_type application/json;
+
 		if ($geoip_org ~* "^(AS[0-9]+) (.+)") {
 			set $asn $1;
 			set $isp $2;
@@ -96,7 +98,8 @@ server {
 
 		local json = cjson.encode(args)
 
-		if callback ~= "" then
+		if (callback ~= nil and callback ~= "") then
+			ngx.header.content_type = 'application/javascript'
 			ngx.say(callback, "(", json, ");")
 		else
 			ngx.say(json)
