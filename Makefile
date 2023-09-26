@@ -49,9 +49,9 @@ archive: package
 
 download-data:
 	@mkdir -p data
-	@wget -P data/ http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
-	@wget -P data/ http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz
-	@wget -P data/ http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNumv6.dat.gz
+	@wget -P data/ https://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+	@wget -P data/ https://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz
+	@wget -P data/ https://download.maxmind.com/download/geoip/database/asnum/GeoIPASNumv6.dat.gz
 
 test-go:
 	@touch xunit.xml
